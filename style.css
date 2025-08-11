@@ -1,0 +1,200 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  background: fixed #500403;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 30px;
+  padding-right: 70px;
+}
+
+ul li {
+  list-style: none;
+  padding-top: 30px;
+}
+
+#logo-lmnas {
+  width: 50px;
+  padding-top: 20px;
+}
+
+.hero {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 100vw;
+  height: 100vh;
+  background: fixed;
+  background-color: #87110f;
+}
+
+h1,
+h2,
+h3 {
+  background: linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1 {
+  font-size: 130px;
+}
+
+h2 {
+  font-size: 100px;
+}
+
+h3 {
+  font-family: alladin;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.card h3 {
+  padding-top: 10px;
+}
+
+.burowai {
+  font-family: burowai;
+}
+
+.dalek {
+  font-family: Dalek Pinpoint;
+}
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 50vh;
+}
+
+#display-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  width: 600px;
+  height: 600px;
+  background-color: #87110f;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+.card-1 {
+  z-index: 0;
+}
+
+.card-2 {
+  z-index: 1;
+}
+
+.card-3 {
+  z-index: 0;
+}
+
+p {
+  background-color: #87110f;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  text-align: center;
+}
+
+.linimasa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.linimasa-ul li {
+  font-family: aladin;
+  font-size: 60px;
+  background: linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.linimasa-ul li p {
+  background-color: #500403;
+  font-size: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: start;
+  justify-content: flex-start;
+  padding: 0px;
+}
+
+.alur {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.daftar {
+  margin-top: 100px;
+  margin-left: 30px;
+  position: relative;
+}
+
+.daftar p {
+  background-color: #500403;
+  display: inline-block;
+  font-size: 40px;
+}
+
+.daftar li {
+  margin-left: 20px;
+  font-family: aladin;
+}
+
+.btn-daftar {
+  width: 500px;
+  height: 100px;
+  border: 3px solid wheat;
+  border-radius: 20px;
+  font-family: aladin;
+  position: absolute;
+  margin-left: 63%;
+  margin-bottom: 50px;
+}
+
+.kesan-pesan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 200px;
+}
+
+.kesan-pesan img {
+  width: 1000px;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3a0605;
+  color: white;
+  text-align: center;
+}
