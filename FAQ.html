@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Funnel+Display:wght@300..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+    <title>FAQ</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div class="navbar">
+        <ul class="nav1">
+          <li><a href="FAQ.html">FAQ</a></li>
+          <li><a href="peraturan.html">Peraturan</a></li>
+          <li><a href="buku.html">Buku Panduan</a></li>
+        </ul>
+        <ul class="nav2">
+          <img src="./Assets/lmnasLogo.png" alt="logo lmnas" id="logo-lmnas" />
+          <li><a href="index.html">Home</a></li>
+          <li>Register</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- FAQ -->
+    <div class="container-FAQ">
+      <h1 class="dalek">FAQ</h1>
+      <div class="FAQ-questions">
+        <ul class="faq">
+          <li>
+            <div class="q">
+              <span class="q-text">Pertanyaan 1</span>
+              <img src="./Assets/Arrow.svg" alt="arrow" class="arrow" />
+            </div>
+            <div class="a">
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Commodi placeat ab voluptas nulla tempore sint provident,
+                ratione cupiditate molestiae omnis non quas nihil nostrum eos
+                delectus fuga numquam soluta itaque quam ipsa nisi. Laboriosam,
+                officiis nulla esse deserunt reiciendis dicta.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div class="q">
+              <span class="q-text">Pertanyaan 2</span>
+              <img src="./Assets/Arrow.svg" alt="arrow" class="arrow" />
+            </div>
+            <div class="a">
+              <p>
+                Registration requires a valid email address and completion of
+                the online form. All participants must be at least 18 years old
+                and provide necessary documentation.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div class="q">
+              <span class="q-text">Pertanyaan 3</span>
+              <img src="./Assets/Arrow.svg" alt="arrow" class="arrow" />
+            </div>
+            <div class="a">
+              <p>
+                The registration deadline is October 26, 2025. Late
+                registrations may not be accepted, so please ensure you submit
+                your application before this date.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      const q = document.querySelectorAll(".q");
+      const a = document.querySelectorAll(".a");
+      const arr = document.querySelectorAll(".arrow");
+
+      for (let i = 0; i < q.length; i++) {
+        q[i].addEventListener("click", () => {
+          a[i].classList.toggle("a-opened");
+          arr[i].classList.toggle("arrow-rotated");
+        });
+      }
+    </script>
+  </body>
+</html>

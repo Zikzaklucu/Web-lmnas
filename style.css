@@ -1,31 +1,102 @@
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
   margin: 0px;
   padding: 0px;
-  background: fixed #500403;
+  background: url(./Assets/bg.png);
+  background-size: 500px;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
-nav ul {
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes movingline {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes onoff {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+body {
+  overscroll-behavior: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: fixed #500403;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  background: linear-gradient(to top, #d4a75b, #e5c58e, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav2,
+.nav1 {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-start;
-  gap: 30px;
-  padding-right: 70px;
+  gap: 35px;
+  padding: 1em;
+  padding-bottom: 0.7em;
+  padding-top: 0px;
+}
+
+.nav1 {
+  margin-left: 30px;
+}
+
+.nav2 li {
+  margin-top: 7px;
+  padding-top: 30px;
+}
+
+.nav2 {
+  margin-right: 30px;
 }
 
 ul li {
   list-style: none;
   padding-top: 30px;
+  margin-top: 7px;
 }
 
 #logo-lmnas {
-  width: 50px;
+  width: 60px;
   padding-top: 20px;
 }
 
 .hero {
-  margin-top: 20px;
   margin-bottom: 30px;
   width: 100vw;
   height: 100vh;
@@ -36,7 +107,7 @@ ul li {
 h1,
 h2,
 h3 {
-  background: linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  background: linear-gradient(to top, #d4a75b, #e5c58e, #d4a75b);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -69,54 +140,245 @@ h3 {
   font-family: Dalek Pinpoint;
 }
 
-.countdown {
+#countdown-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.half-circle-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: 50vw;
+  z-index: 1;
+}
+
+.half-circle-object {
+  width: 750px;
+  height: 750px;
+  box-sizing: border-box;
+  background-image: url(./Assets/bulat.svg);
+  background-size: cover;
+  background-position: center;
+  animation: spin 6s linear infinite;
+  transform: translateZ(0);
+}
+
+.half-circle-container.left {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-350%);
+}
+
+.half-circle-container.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(0%);
+}
+
+.countdown-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
   height: 50vh;
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  background: transparent;
 }
 
-#display-cards {
+.countdown-timer {
+  margin-top: 15px;
   display: flex;
-  gap: 20px;
 }
 
-.card {
-  width: 600px;
+.countdown-timer div {
+  flex-grow: 100px;
+}
+
+.titikDua {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  font-size: 50px;
+  background: linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+div #days,
+#hours,
+#minutes,
+#seconds {
+  font-family: aladin;
+  font-size: 50px;
+  background: linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
   height: 600px;
-  background-color: #87110f;
-  border-radius: 50px;
-  margin: 10px;
+  margin: 0 auto 150px;
 }
 
-.card-1 {
-  z-index: 0;
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.card-2 {
+/* The outer container now acts as the border */
+.card {
+  position: absolute;
+  width: 579px; /* Increased size */
+  height: 512px; /* Increased size */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* Apply the gradient and texture here */
+  background: url(./Assets/Rectangle\ 294.png),
+    linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  /* Add some padding to define the border thickness */
+  padding: 10px;
+  box-sizing: border-box;
+
   z-index: 1;
+  transition: transform 0.7s ease-in-out, z-index 0.3s ease-in-out;
 }
 
-.card-3 {
-  z-index: 0;
+/* The inner container is the actual card with the dark red background */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  background-color: #87110f;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card.active {
+  z-index: 3;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.card.prev {
+  z-index: 2;
+  transform: translate(-100%, -50%) scale(0.8);
+}
+
+.card.next {
+  z-index: 2;
+  transform: translate(0%, -50%) scale(0.8);
+}
+
+.card:not(.active):not(.prev):not(.next) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav-buttons {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
+  z-index: 4;
+}
+
+.prev-button,
+.next-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2em;
+  padding: 15px 23px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+h3 {
+  padding: 30px 0;
+  background: linear-gradient(to top, #d4a75b, #e5c58e, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ensure the paragraph text is also white */
+.card-inner p {
+  color: white;
 }
 
 p {
-  background-color: #87110f;
   display: flex;
   justify-content: center;
   padding: 15px;
   text-align: center;
 }
 
+#linimasa {
+  position: relative;
+  background-image: url(./Assets/line-linimasa.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0rem 100%;
+}
+
+/* .linimasa-line {
+  position: absolute;
+  right: 12%;
+  overflow-x: hidden;
+  animation: movingline 10s linear infinite;
+} */
 .linimasa {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+}
+
+.linimasa h2 {
+  margin-bottom: 50px;
 }
 
 .linimasa-ul li {
@@ -132,7 +394,7 @@ p {
   justify-content: flex-start;
 }
 .linimasa-ul li p {
-  background-color: #500403;
+  color: #ffffff;
   font-size: 20px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -141,40 +403,136 @@ p {
   padding: 0px;
 }
 
+.linimasa-content {
+  display: flex;
+  position: relative;
+}
+
+.linimasa-content-container {
+  display: grid;
+  grid-template-columns: 50px 500px;
+  grid-template-rows: 100px 100px;
+  position: relative;
+}
+.linimasa-content-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -40px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.dashed-line {
+  height: 600px;
+  width: 2px;
+  position: absolute;
+  top: 10%;
+  bottom: 0;
+  left: 2.7%;
+  transform: translateX(-50%);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #fff 0,
+    #fff 40px,
+    /* Dash length */ transparent 10px,
+    transparent 50px
+  );
+  /* box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.7); */
+}
+
 .alur {
   margin-top: 150px;
+  margin-bottom: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+#daftar {
+  position: relative;
+  overflow: hidden;
+}
+
+.kuda {
+  height: 110vh;
+  position: absolute;
+  left: 90%;
+  bottom: 3%;
+  transform: translateX(-50%);
+}
+
 .daftar {
   margin-top: 100px;
+  margin-bottom: 500px;
   margin-left: 30px;
   position: relative;
 }
 
 .daftar p {
-  background-color: #500403;
   display: inline-block;
-  font-size: 40px;
+  font-size: 30px;
+}
+
+.daftar h2 {
+  text-align: center;
+  margin-bottom: 75px;
 }
 
 .daftar li {
-  margin-left: 20px;
+  margin-left: 50px;
+  font-size: 20px;
   font-family: aladin;
 }
 
-.btn-daftar {
-  width: 500px;
-  height: 100px;
-  border: 3px solid wheat;
-  border-radius: 20px;
+.daftar ul li {
+  list-style-type: disc;
+}
+
+.p-daftar {
+  font-size: 20px;
   font-family: aladin;
+  margin-top: 20px;
+}
+
+.btn-daftar {
+  width: 450px;
+  height: 100px;
+  border-radius: 15px;
+  border: none;
+  font-family: aladin;
+  font-size: larger;
   position: absolute;
+  background: fixed #6b0504;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 460px; /* Increased size */
+  height: 110px; /* Increased size */
   margin-left: 63%;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
+
+  /* Apply the gradient and texture here */
+  background: url(./Assets/Rectangle\ 294.png),
+    linear-gradient(to top, #d4a75b, #fcdfae, #d4a75b);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  /* Add some padding to define the border thickness */
+  padding: 5px;
+  z-index: 1;
 }
 
 .kesan-pesan {
@@ -182,7 +540,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 200px;
+  margin: 100px;
 }
 
 .kesan-pesan img {
@@ -195,6 +553,299 @@ footer {
   width: 100%;
   height: 100%;
   background-color: #3a0605;
-  color: white;
   text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  background: linear-gradient(to top, #d4a75b, #e5c58e, #d4a75b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.box {
+  background-color: whitesmoke;
+  height: 50px;
+  width: 10px;
+}
+
+/* FAQ Section */
+
+.container-FAQ h1 {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.q-text {
+  color: #fff;
+  font-family: aladin;
+  font-size: x-large;
+  margin-left: 5px;
+}
+
+.faq {
+  list-style: none;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq li {
+  background: #940908;
+  border-bottom: 1px #940908 solid;
+  border-radius: 10px;
+}
+
+.faq li:first-child {
+  border-top: 1px #940908 solid;
+}
+
+.q {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.faq p {
+  color: #888;
+  line-height: 25px;
+  text-align: left;
+}
+
+.a {
+  background: #fff;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 1em 0 3.3em;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+  text-align: left;
+}
+
+.a-opened {
+  padding: 1em 1em 2em 3.3em;
+  max-height: 200px;
+}
+
+.arrow-rotated {
+  transform: rotate(0deg);
+}
+
+.FAQ-questions ul li {
+  margin: 25px 0px 0px 25px;
+  padding: 10px 0 0 0;
+}
+
+/* peraturan */
+
+.rule-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  background: fixed;
+  background-color: rgba(134, 22, 22, 0.3);
+}
+
+ol li {
+  font-family: montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 20px;
+  padding: 10px;
+  color: #ecc57a;
+}
+
+ol li ul li {
+  list-style-type: disc;
+}
+
+#rules h1 {
+  margin: 5rem 0 2.5rem 10rem;
+}
+
+.rule-container {
+  border-radius: 30px;
+  padding: 30px;
+  padding-left: 80px;
+}
+
+.rule-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* buku panduan */
+
+.buku-container h1 {
+  margin: 3rem 0 3rem 3rem;
+  font-size: 100px;
+}
+.digital-flipbook {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book {
+  position: relative;
+  width: 500px;
+  height: 700px;
+}
+
+.paper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  perspective: 1500px;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+  transition: transform 0.8s;
+}
+
+.flipped .front,
+.flipped .back {
+  transform: rotateY(-180deg);
+}
+.front {
+  z-index: 1;
+  backface-visibility: hidden;
+}
+
+.back {
+  z-index: 0;
+}
+
+.back-content {
+  transform: rotateY(180deg);
+}
+
+.front-content,
+.back-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digital-flipbook button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 25px;
+  transition: transform 0.5s;
+}
+
+.digital-flipbook button:focus {
+  outline: none;
+}
+
+.digital-flipbook button:hover {
+  color: #636363;
+}
+
+i {
+  font-size: 50px;
+  color: gray;
+}
+
+#p1 {
+  z-index: 3;
+}
+
+#p2 {
+  z-index: 2;
+}
+
+#p3 {
+  z-index: 1;
+}
+
+#f1 {
+  background: url(./Assets/page-1.png);
+  background-size: cover;
+}
+
+#b1 {
+  background: url(./Assets/back-1.png);
+  background-size: cover;
+}
+
+#f2 {
+  background: url(./Assets/page-2.png);
+  background-size: cover;
+}
+
+#b2 {
+  background: url(./Assets/back-2.png);
+  background-size: cover;
+}
+
+#f3 {
+  background: url(./Assets/page-3.png);
+  background-size: cover;
+}
+
+#b3 {
+  background: url(./Assets/back-3.png);
+  background-size: cover;
+}
+
+#f4 {
+  background: url(./Assets/page-4.png);
+  background-size: cover;
+}
+
+#b4 {
+  background: url(./Assets/back-4.png);
+  background-size: cover;
+}
+
+#f5 {
+  background: url(./Assets/page-5.png);
+  background-size: cover;
+}
+
+#b5 {
+  background: url(./Assets/back-5.png);
+  background-size: cover;
+}
+
+#f6 {
+  background: url(./Assets/page-6.png);
+  background-size: cover;
+}
+
+#b6 {
+  background: url(./Assets/back-6.png);
+  background-size: cover;
 }

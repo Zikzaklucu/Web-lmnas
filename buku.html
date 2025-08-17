@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buku Panduan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Funnel+Display:wght@300..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6ca372bc0c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div class="navbar">
+        <ul class="nav1">
+          <li><a href="FAQ.html">FAQ</a></li>
+          <li><a href="peraturan.html">Peraturan</a></li>
+          <li><a href="buku.html">Buku Panduan</a></li>
+        </ul>
+        <ul class="nav2">
+          <img src="./Assets/lmnasLogo.png" alt="logo lmnas" id="logo-lmnas" />
+          <li><a href="index.html">Home</a></li>
+          <li>Register</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- buku panduan -->
+    <section class="buku-container">
+      <h1 class="dalek">Buku Panduan</h1>
+      <div class="digital-flipbook">
+        <button id="prev-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <div class="book" id="book">
+          <div id="p1" class="paper">
+            <div class="front">
+              <div class="front-content" id="f1"></div>
+            </div>
+            <div class="back">
+              <div id="b1" class="back-content"></div>
+            </div>
+          </div>
+          <div id="p2" class="paper">
+            <div class="front">
+              <div class="front-content" id="f2"></div>
+            </div>
+            <div class="back">
+              <div id="b2" class="back-content"></div>
+            </div>
+          </div>
+          <div id="p3" class="paper">
+            <div class="front">
+              <div class="front-content" id="f3"></div>
+            </div>
+            <div class="back">
+              <div id="b3" class="back-content"></div>
+            </div>
+          </div>
+          <div id="p4" class="paper">
+            <div class="front">
+              <div class="front-content" id="f4"></div>
+            </div>
+            <div class="back">
+              <div id="b4" class="back-content"></div>
+            </div>
+          </div>
+          <div id="p5" class="paper">
+            <div class="front">
+              <div class="front-content" id="f5"></div>
+            </div>
+            <div class="back">
+              <div id="b5" class="back-content"></div>
+            </div>
+          </div>
+          <div id="p6" class="paper">
+            <div class="front">
+              <div class="front-content" id="f6"></div>
+            </div>
+            <div class="back">
+              <div id="b6" class="back-content"></div>
+            </div>
+          </div>
+        </div>
+
+        <button id="next-btn">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <script>
+      // buku panduan
+      const prevBtn = document.querySelector("#prev-btn");
+      const nextBtn = document.querySelector("#next-btn");
+      const book = document.querySelector("#book");
+
+      const paper1 = document.querySelector("#p1");
+      const paper2 = document.querySelector("#p2");
+      const paper3 = document.querySelector("#p3");
+      const paper4 = document.querySelector("#p4");
+      const paper5 = document.querySelector("#p5");
+      const paper6 = document.querySelector("#p6");
+
+      let currentLocation = 1;
+      let numOfPapers = 6;
+      let maxLocation = numOfPapers + 1;
+
+      function openBook() {
+        book.style.transform = "translateX(50%)";
+        prevBtn.style.transform = "translateX(-240px)";
+        nextBtn.style.transform = "translateX(240px)";
+      }
+
+      function closeBook(isAtBeginning) {
+        if (isAtBeginning) {
+          book.style.transform = "translateX(0%)";
+        } else {
+          book.style.transform = "translateX(100%)";
+        }
+        prevBtn.style.transform = "translateX(0px)";
+        nextBtn.style.transform = "translateX(0px)";
+      }
+
+      function goNextPage() {
+        if (currentLocation < maxLocation) {
+          switch (currentLocation) {
+            case 1:
+              openBook();
+              paper1.classList.add("flipped");
+              paper1.style.zIndex = 1;
+              break;
+            case 2:
+              paper2.classList.add("flipped");
+              paper2.style.zIndex = 2;
+              break;
+            case 3:
+              paper3.classList.add("flipped");
+              paper3.style.zIndex = 3;
+              break;
+            case 4:
+              paper4.classList.add("flipped");
+              paper4.style.zIndex = 4;
+              break;
+            case 5:
+              paper5.classList.add("flipped");
+              paper5.style.zIndex = 5;
+              break;
+            case 6:
+              paper6.classList.add("flipped");
+              paper6.style.zIndex = 6;
+              closeBook();
+              break;
+            default:
+              throw new Error("Unknown State");
+          }
+          currentLocation++;
+          console.log("Current page:", currentLocation);
+        }
+      }
+
+      function goPrevPage() {
+        if (currentLocation > 1) {
+          switch (currentLocation) {
+            case 2:
+              closeBook(true);
+              paper1.classList.remove("flipped");
+              paper1.style.zIndex = 6;
+              break;
+            case 3:
+              paper2.classList.remove("flipped");
+              paper2.style.zIndex = 5;
+              break;
+            case 4:
+              paper3.classList.remove("flipped");
+              paper3.style.zIndex = 4;
+              break;
+            case 5:
+              paper4.classList.remove("flipped");
+              paper4.style.zIndex = 3;
+              break;
+            case 6:
+              paper5.classList.remove("flipped");
+              paper5.style.zIndex = 2;
+              break;
+            case 7:
+              openBook();
+              paper6.classList.remove("flipped");
+              paper6.style.zIndex = 1;
+              break;
+            default:
+              throw new Error("Unknown State");
+          }
+          currentLocation--;
+          console.log("Current page:", currentLocation);
+        }
+      }
+      // Add event listeners
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener("click", goPrevPage);
+        nextBtn.addEventListener("click", goNextPage);
+      } else {
+        console.error("Button elements not found");
+      }
+    </script>
+  </body>
+</html>

@@ -3,18 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Lmnas</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aladin&family=Caveat:wght@400..700&family=Funnel+Display:wght@300..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <!-- navbar -->
     <nav>
-      <ul>
-        <img src="/Assets/lmnasLogo.png" alt="logo lmnas" id="logo-lmnas" />
-        <li>Home</li>
-        <li>Register</li>
-        <li>Contact</li>
-      </ul>
+      <div class="navbar">
+        <ul class="nav1">
+          <li><a href="FAQ.html">FAQ</a></li>
+          <li><a href="peraturan.html">Peraturan</a></li>
+          <li><a href="buku.html">Buku Panduan</a></li>
+        </ul>
+        <ul class="nav2">
+          <img src="./Assets/lmnasLogo.png" alt="logo lmnas" id="logo-lmnas" />
+          <li><a href="index.html">Home</a></li>
+          <li>Register</li>
+          <li>Contact</li>
+        </ul>
+      </div>
     </nav>
 
     <!-- hero section -->
@@ -23,58 +38,148 @@
     </section>
 
     <!-- countdown -->
-    <div class="countdown">
-      <h2 class="burowai">ROAD TO</h2>
-      <h1 class="dalek">Babak Penyisihan</h1>
-      <div class="countdown-timer">
-        <h3>420 : 69 : 666</h3>
+    <section id="countdown-section">
+      <div class="half-circle-container left">
+        <div class="half-circle-object"></div>
       </div>
-    </div>
+      <div class="countdown-container">
+        <h2 class="burowai">ROAD TO</h2>
+        <h1 class="dalek">Babak Penyisihan</h1>
+        <div class="countdown-timer">
+          <div>
+            <p id="days">00</p>
+            <span></span>
+          </div>
+          <div class="titikDua">:</div>
+          <div>
+            <p id="hours">00</p>
+            <span></span>
+          </div>
+          <div class="titikDua">:</div>
+          <div>
+            <p id="minutes">00</p>
+            <span></span>
+          </div>
+          <div class="titikDua">:</div>
+          <div>
+            <p id="seconds">00</p>
+          </div>
+        </div>
+      </div>
+      <div class="half-circle-container right">
+        <div class="half-circle-object"></div>
+      </div>
+    </section>
 
     <!-- display-card -->
-
-    <section id="display-cards">
-      <div class="card card1">
-        <h3>Mengapa harus ikut</h3>
-        <p>
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-          quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-          aliquam quaerat voluptatem. Ut enim ad minima veniam,
-        </p>
+    <section class="slider-container">
+      <div class="slider-wrapper">
+        <!-- Card 1 -->
+        <div class="card card-1">
+          <div class="card-inner">
+            <h3 class="dalek">Mengapa harus ikut</h3>
+            <p>
+              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+              velit, sed quia non numquam eius modi tempora incidunt ut labore
+              et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+              veniam,
+            </p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card card-2">
+          <div class="card-inner">
+            <h3 class="dalek">APA ITU LMNAS?</h3>
+            <p>
+              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+              velit, sed quia non numquam eius modi tempora incidunt ut labore
+              et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+              veniam,
+            </p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card card-3">
+          <div class="card-inner">
+            <h3 class="dalek">Bajigur</h3>
+            <p>
+              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+              velit, sed quia non numquam eius modi tempora incidunt ut labore
+              et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+              veniam,
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="card card2"></div>
-      <div class="card card3"></div>
+      <div class="nav-buttons">
+        <button class="prev-button">&lt;</button>
+        <button class="next-button">&gt;</button>
+      </div>
     </section>
 
     <!-- linimasa -->
     <section id="linimasa">
+      <!-- <div id="linimasa-img">
+        <img src="./Assets/Group 5214.png" alt="garis" class="linimasa-line">
+      </div> -->
       <div class="linimasa">
         <h2 class="burowai">LINIMASA</h2>
-        <ul class="linimasa-ul">
-          <li>
-            Babak Penyisihan
-            <p>26 Oktober 2025</p>
-          </li>
-          <li>
-            Semi Final
-            <p>15 November 2025</p>
-          </li>
-          <li>
-            Grand Final
-            <p>16 November 2025</p>
-          </li>
-        </ul>
+        <div class="linimasa-content">
+          <div class="dashed-line"></div>
+          <ul class="linimasa-ul">
+            <div class="linimasa-content-container">
+              <div class="circle"></div>
+              <li>
+                Pendaftaran
+                <p>20 Oktober 2025</p>
+              </li>
+            </div>
+            <div class="linimasa-content-container">
+              <div class="circle"></div>
+              <li>
+                Babak Penyisihan
+                <p>26 Oktober 2025</p>
+              </li>
+            </div>
+            <div class="linimasa-content-container">
+              <div class="circle"></div>
+              <li>
+                Semi Final
+                <p>15 November 2025</p>
+              </li>
+            </div>
+            <div class="linimasa-content-container">
+              <div class="circle"></div>
+              <li>
+                Grand Final & Final
+                <p>16 November 2025</p>
+              </li>
+            </div>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- alur pendaftaran -->
-    <section #alur>
+    <section id="alur">
       <div class="alur">
         <h2 class="dalek">ALUR PENDAFTARAN</h2>
         <img src="./Assets/Group 5085.png" alt="" />
@@ -82,11 +187,11 @@
     </section>
 
     <!-- daftar -->
-    <section>
+    <section id="daftar">
+      <img src="./Assets/horse.svg" alt="kuda" class="kuda" />
       <div class="daftar">
         <h2 class="dalek">DAFTAR SEKARANG!!</h2>
         <p class="dalek">DAN DAPATKAN</p>
-        <p></p>
         <ul>
           <li>
             Gratis buku pembahasan LMNas 34 untuk 5 pendaftar pertama per
@@ -97,9 +202,11 @@
             Daftar 6 bayar 5 untuk peserta kolektif dari sekolah yang sama (**)
           </li>
           <li>Beserta promo dan hadiah menarik lainnya</li>
-          <span><li>Keterangan:(**) : berlaku kelipatan</li></span>
+          <p class="p-daftar">Keterangan:(**) : berlaku kelipatan</p>
         </ul>
-        <button class="btn-daftar">Daftar Sekarang</button>
+        <div class="btn-container">
+          <button class="btn-daftar">Daftar Sekarang</button>
+        </div>
       </div>
     </section>
 
